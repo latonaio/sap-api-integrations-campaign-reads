@@ -150,12 +150,12 @@ func (c *SAPAPICaller) setHeaderAPIKeyAccept(req *http.Request) {
 
 func (c *SAPAPICaller) getQueryWithCampaignCollection(req *http.Request, campaignID string) {
 	params := req.URL.Query()
-	params.Add("%filter", fmt.Sprintf("CampaignID eq '%s'", campaignID))
+	params.Add("$filter", fmt.Sprintf("CampaignID eq '%s'", campaignID))
 	req.URL.RawQuery = params.Encode()
 }
 
 func (c *SAPAPICaller) getQueryWithCampaignName(req *http.Request, campaignName string) {
 	params := req.URL.Query()
-	params.Add("%filter", fmt.Sprintf("substringof('%s', CampaignName)", campaignName))
+	params.Add("$filter", fmt.Sprintf("substringof('%s', CampaignName)", campaignName))
 	req.URL.RawQuery = params.Encode()
 }

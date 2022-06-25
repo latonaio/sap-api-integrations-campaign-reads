@@ -2,7 +2,7 @@ package main
 
 import (
 	sap_api_caller "sap-api-integrations-campaign-reads/SAP_API_Caller"
-	"sap-api-integrations-campaign-reads/SAP_API_Input_Reader"
+	sap_api_input_reader "sap-api-integrations-campaign-reads/SAP_API_Input_Reader"
 
 	"github.com/latonaio/golang-logging-library-for-sap/logger"
 )
@@ -10,7 +10,7 @@ import (
 func main() {
 	l := logger.NewLogger()
 	fr := sap_api_input_reader.NewFileReader()
-	inoutSDC := fr.ReadSDC("./Inputs/SDC_Campaign_Campaign_Name_sample.json")
+	inoutSDC := fr.ReadSDC("./Inputs/SDC_Campaign_Campaign_Collection_sample.json")
 	caller := sap_api_caller.NewSAPAPICaller(
 		"https://sandbox.api.sap.com/sap/c4c/odata/v1/", l,
 	)
